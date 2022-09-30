@@ -37,5 +37,12 @@ myDrop n (x:xs) = if lenList == requiredLen
   where requiredLen = lenList - n
         lenList = length (x:xs)
 
-                        
+myLength [] = 0
+myLength xs = 1 + myLength (tail xs)
+
+myCycle list = list ++ myCycle list
+
+myReverse [] = []
+myReverse list =  (myReverse myTail) ++ [head list]
+  where myTail = tail list
                                                       
