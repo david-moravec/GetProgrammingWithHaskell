@@ -1,0 +1,41 @@
+subseq start stop list = if start > len
+                          then []
+                          else if stop > len
+                          then listWithoutStart
+                          else take diff listWithoutStart
+  where len = length list
+        diff = stop - start
+        listWithoutStart = drop start list
+
+inFirstHalf list element = element `elem` halfList
+  where halfList = drop halfLen list
+        halfLen = length list `div` 2
+
+say 1 = "one"
+say 2 = "two"
+say n = "a bucnh"
+
+
+myTail (_:xs) = xs
+myTail [] = []
+
+myGCD a b = if remainder == 0
+            then b
+            else myGCD b remainder
+  where remainder = a `mod` b
+
+myGCDpattern a 0 = a
+myGCDpattern a b = myGCD b remainder
+  where remainder = a `mod` b
+
+myTake 0 (x:xs) = []
+myTake n (x:xs) = [x] ++ myTake (n-1) (xs)
+
+myDrop n (x:xs) = if lenList == requiredLen
+                  then (x:xs)
+                  else myDrop (n-1) (xs)
+  where requiredLen = lenList - n
+        lenList = length (x:xs)
+
+                        
+                                                      
