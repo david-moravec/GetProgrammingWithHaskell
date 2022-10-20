@@ -55,4 +55,9 @@ myFold binaryFunc arg list = binaryFunc (myFold binaryFunc arg (tail list)) list
 myElem el list = lenFiltered > 0
   where lenFiltered = length filtered
         filtered = filter (\x -> x == el) list
+
+isPalindrome word = word == reverse word
+
+harmonic n = foldl (+) 0 transformed
+  where transformed = map (\x -> 1/x) [1 .. n]
         
