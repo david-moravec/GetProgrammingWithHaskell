@@ -45,4 +45,14 @@ myCycle list = list ++ myCycle list
 myReverse [] = []
 myReverse list =  (myReverse myTail) ++ [head list]
   where myTail = tail list
-                                                      
+
+genFuncByAll _ [] = []
+genFuncByAll func (x:xs) = (func x):(genFuncByAll func xs)
+
+myFold _ arg [] = arg
+myFold binaryFunc arg list = binaryFunc (myFold binaryFunc arg (tail list)) list 
+
+myElem el list = lenFiltered > 0
+  where lenFiltered = length filtered
+        filtered = filter (\x -> x == el) list
+        
