@@ -58,6 +58,11 @@ myElem el list = lenFiltered > 0
 
 isPalindrome word = word == reverse word
 
+mapOutSpaces sentence = map deleteSpace sentence
+  where deleteSpace x = if x == ""
+                          then []
+                        else [x]
+
 harmonic n = foldl (+) 0 transformed
   where transformed = map (\x -> 1/x) [1 .. n]
         
