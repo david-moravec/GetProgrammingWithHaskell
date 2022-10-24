@@ -2,7 +2,7 @@ robot (n,a,h) = \message -> message (n,a,h)
 
 getName robot = robot (\(n,a,h) -> n)
 getAttack robot = robot (\(n,a,h) -> a)
-getHealth robot = robot (\(n,a,h) -> h)
+getHP robot = robot (\(n,a,h) -> h)
 
 setName robot newName = robot (\(n,a,h) -> (newName,a,h))
 setAttack robot newAttack = robot (\(n,a,h) -> (n,newAttack,h))
