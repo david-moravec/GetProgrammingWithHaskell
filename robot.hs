@@ -14,5 +14,5 @@ damage aRobot attackDamage = aRobot (\(n,a,h) -> (n,a,h-attackDamage))
 
 fight aRobot defender = damage defender attack
   where attack = if getHP aRobot > 10
-                 than getAttack aRobot
+                 then getAttack aRobot
                  else 0
