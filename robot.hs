@@ -16,3 +16,7 @@ fight aRobot defender = damage defender attack
   where attack = if getHP aRobot > 10
                  then getAttack aRobot
                  else 0
+
+threeRoundFight robotA robotB = 
+                               
+                              
