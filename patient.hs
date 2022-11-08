@@ -3,12 +3,12 @@ data Name = Name { firstName :: String
                  , middleName :: String
                  , lastName :: String}
 showName :: Name -> String
-showName name = firstName name ++ middleName name ++ lastName name
+showName name = firstName name ++ " " ++ middleName name ++ " " ++ lastName name
 
 data Sex = Female | Male
-showSex :: Sex -> Char
-showSex Female = 'F'
-showSex Male = 'M'
+showSex :: Sex -> String
+showSex Female = "F"
+showSex Male = "M"
 
 data RhType = Pos | Neg
 showRH :: RhType -> String
@@ -47,15 +47,14 @@ data Patient = Patient { name :: Name
                        , weight :: Int
                        , bloodType :: BloodType}
 
-{-
-printStat stat patient = stat patient ++ "\n"
 
-printName patient = printStat name patient
-printSex patient = printStat sex patient
-printAge patient = printStat age patient
-printHeight patient = printStat height patient
-printWeight patient = printStat weight patient
-printBloodType patient = printStat bloodType patient
+printName, printSex, printAge, printHeight, printWeight, printBloodType :: Patient -> String
+printName patient = showName (name patient) ++ "\n"
+printSex patient = showSex (sex patient) ++ "\n"
+printAge patient = show (age patient) ++ "\n"
+printHeight patient = show (height patient) ++ "\n"
+printWeight patient = show (weight patient) ++ "\n"
+printBloodType patient = showBloodType (bloodType patient) ++ "\n"
 
 patientSummary :: Patient -> String
 patientSummary patient = stars ++ printName patient ++ 
@@ -65,9 +64,8 @@ patientSummary patient = stars ++ printName patient ++
                          printWeight patient ++ 
                          printBloodType patient ++ stars
   where stars = "************\n"
--}
 
-jackieSmith = Patient {name = Name "Jackie" "" "Smith"
+jackieSmith = Patient {name = Name "Jackie" " " "Smith"
                       , age = 43
                       , sex = Female
                       , height = 62
